@@ -1,0 +1,25 @@
+{
+  "name": "esy-zlib",
+  "version": "1.2.11000",
+  "description": "zlib packaged for esy",
+  "esy": {
+    "exportedEnv": {
+      "CFLAGS": {
+        "scope": "global",
+        "val": "-I#{self.install / 'include'} $CFLAGS"
+      },
+      "LDFLAGS": {
+        "scope": "global",
+        "val": "-L#{self.lib} $LDFLAGS"
+      }
+    },
+    "buildsInSource": true,
+    "build": [
+      "./configure --prefix #{self.install}",
+      "make"
+    ],
+    "install": [
+      "make install"
+    ]
+  }
+}

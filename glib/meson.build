@@ -16,7 +16,94 @@ endif
 if have_good_vsnprintf and have_good_snprintf
   gnulib_lib = []
   gnulib_objects = []
+  gnulib_libm_dependency = []
+  glib_conf.set ('gl_unused', '')
+  glib_conf.set ('gl_extern_inline', '')
 else
+  subdir ('gnulib/gl_extern_inline')
+  subdir ('gnulib/gl_cv_long_double_equals_double')
+  subdir ('gnulib/gl_cv_cc_double_expbit0')
+  subdir ('gnulib/gl_cv_func_printf_precision')
+  subdir ('gnulib/gl_cv_func_printf_enomem')
+  subdir ('gnulib/gl_cv_func_printf_flag_zero')
+  subdir ('gnulib/gl_cv_func_printf_flag_leftadjust')
+  subdir ('gnulib/gl_cv_func_printf_flag_grouping')
+  subdir ('gnulib/gl_cv_func_printf_directive_a')
+  subdir ('gnulib/gl_cv_func_printf_directive_f')
+  subdir ('gnulib/gl_cv_func_printf_directive_ls')
+  subdir ('gnulib/gl_cv_func_printf_long_double')
+  subdir ('gnulib/gl_cv_func_printf_infinite')
+  subdir ('gnulib/gl_cv_func_printf_infinite_long_double')
+
+  gl_unused = '''
+/* Define as a marker that can be attached to declarations that might not
+    be used.  This helps to reduce warnings, such as from
+    GCC -Wunused-parameter.  */
+#if __GNUC__ >= 3 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7)
+# define _GL_UNUSED __attribute__ ((__unused__))
+#else
+# define _GL_UNUSED
+#endif
+'''
+  glib_conf.set ('gl_unused', gl_unused)
+  glib_conf.set ('gl_extern_inline', gl_extern_inline)
+
+  if (gl_cv_long_double_equals_double)
+    glib_conf.set ('HAVE_SAME_LONG_DOUBLE_AS_DOUBLE', 1)
+  endif
+
+  if (gl_cv_cc_double_expbit0_word >= 0 and
+      gl_cv_cc_double_expbit0_bit >= 0)
+    glib_conf.set('DBL_EXPBIT0_WORD', gl_cv_cc_double_expbit0_word)
+    glib_conf.set('DBL_EXPBIT0_BIT', gl_cv_cc_double_expbit0_bit)
+  endif
+
+  if not gl_cv_func_printf_precision
+    glib_conf.set('NEED_PRINTF_UNBOUNDED_PRECISION', 1)
+  endif
+
+  if not gl_cv_func_printf_enomem
+    glib_conf.set('NEED_PRINTF_ENOMEM', 1)
+  endif
+
+  if not gl_cv_func_printf_flag_leftadjust
+    glib_conf.set('NEED_PRINTF_FLAG_LEFTADJUST', 1)
+  endif
+
+  if not gl_cv_func_printf_flag_zero
+    glib_conf.set('NEED_PRINTF_FLAG_ZERO', 1)
+  endif
+
+  if not gl_cv_func_printf_flag_grouping
+    glib_conf.set('NEED_PRINTF_FLAG_GROUPING', 1)
+  endif
+
+  if not gl_cv_func_printf_directive_a
+    glib_conf.set('NEED_PRINTF_DIRECTIVE_A', 1)
+  endif
+
+  if not gl_cv_func_printf_directive_f
+    glib_conf.set('NEED_PRINTF_DIRECTIVE_F', 1)
+  endif
+
+  if not gl_cv_func_printf_directive_ls
+    glib_conf.set('NEED_PRINTF_DIRECTIVE_LS', 1)
+  endif
+
+  if (not gl_cv_func_printf_precision or
+      not gl_cv_func_printf_enomem)
+    glib_conf.set('NEED_PRINTF_DOUBLE', 1)
+    glib_conf.set('NEED_PRINTF_LONG_DOUBLE', 1)
+  endif
+
+  if not gl_cv_func_printf_infinite
+    glib_conf.set('NEED_PRINTF_INFINITE_DOUBLE', 1)
+  endif
+
+  if gl_cv_func_printf_long_double and gl_cv_func_printf_infinite_long_double != 'false'
+    glib_conf.set('NEED_PRINTF_INFINITE_LONG_DOUBLE', 1)
+  endif
+
   subdir('gnulib')
   gnulib_objects = [gnulib_lib.extract_all_objects()]
 endif
@@ -199,6 +286,7 @@ glib_sources = files(
   'gunidecomp.c',
   'gurifuncs.c',
   'gutils.c',
+  'gutilsprivate.h',
   'guuid.c',
   'gvariant.c',
   'gvariant-core.c',
@@ -221,9 +309,16 @@ if host_system == 'windows'
   glib_sources += [glib_win_res]
   glib_sources += files('gwin32.c', 'gspawn-win32.c', 'giowin32.c')
   platform_deps = [winsock2, cc.find_library('winmm')]
+  if cc.get_id() == 'msvc'
+    glib_sources += files('dirent/wdirent.c')
+  endif
 else
   glib_sources += files('glib-unix.c', 'gspawn.c', 'giounix.c')
   platform_deps = []
+endif
+
+if host_system == 'darwin'
+  glib_sources += files('gosxutils.m')
 endif
 
 glib_sources += files('gthread-@0@.c'.format(threads_implementation))
@@ -250,18 +345,21 @@ else
   pcre_objects = [libpcre.extract_all_objects()]
 endif
 
+glib_c_args = ['-DG_LOG_DOMAIN="GLib"', '-DGLIB_COMPILATION'] + pcre_static_args + glib_hidden_visibility_args
 libglib = library('glib-2.0',
   glib_dtrace_obj, glib_dtrace_hdr,
   sources : [deprecated_sources, glib_sources],
   objects : [charset_lib.extract_all_objects()] + gnulib_objects + pcre_objects,
   version : library_version,
   soversion : soversion,
+  darwin_versions : darwin_versions,
   install : true,
   # intl.lib is not compatible with SAFESEH
   link_args : [noseh_link_args, glib_link_flags, win32_ldflags],
   include_directories : configinc,
-  dependencies : pcre_deps + [thread_dep, libintl, librt] + libiconv + platform_deps,
-  c_args : ['-DG_LOG_DOMAIN="GLib"', '-DGLIB_COMPILATION'] + pcre_static_args + glib_hidden_visibility_args
+  dependencies : pcre_deps + [thread_dep, libintl, librt] + libiconv + platform_deps + gnulib_libm_dependency,
+  c_args : glib_c_args,
+  objc_args : glib_c_args,
 )
 
 libglib_dep = declare_dependency(
@@ -272,7 +370,8 @@ libglib_dep = declare_dependency(
   # We sadly need to export configinc here because everyone includes <glib/*.h>
   include_directories : [configinc, glibinc])
 
-pkg.generate(libraries : [libglib, libintl],
+pkg.generate(libglib,
+  libraries : [libintl],
   libraries_private : [osx_ldflags, win32_ldflags],
   subdirs : ['glib-2.0'],
   extra_cflags : ['-I${libdir}/glib-2.0/include'] + win32_cflags,
@@ -315,6 +414,7 @@ if host_system == 'windows'
 else
   gtester = executable('gtester', 'gtester.c',
     install : true,
+    c_args : ['-UG_DISABLE_ASSERT'],
     include_directories : configinc,
     dependencies : [libglib_dep])
 endif

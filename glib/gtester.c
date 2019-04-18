@@ -69,7 +69,7 @@ static const char*
 sindent (guint n)
 {
   static const char spaces[] = "                                                                                                    ";
-  int l = sizeof (spaces) - 1;
+  gsize l = sizeof (spaces) - 1;
   n = MIN (n, l);
   return spaces + l - n;
 }
@@ -677,7 +677,7 @@ int
 main (int    argc,
       char **argv)
 {
-  guint ui;
+  gint ui;
 
   g_set_prgname (argv[0]);
   parse_args (&argc, &argv);

@@ -1,15 +1,105 @@
 {
-  "checksum": "0cc961f41dbf4ff5ab5654751a4ba36e",
-  "root": "esy-glib@link-dev:./package.json",
+  "checksum": "dd8efadc88250414546f246143372a65",
+  "root": "esy-gobject-introspection@link-dev:./package.json",
   "node": {
-    "esy-glib@link-dev:./package.json": {
-      "id": "esy-glib@link-dev:./package.json",
-      "name": "esy-glib",
+    "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9": {
+      "id":
+        "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9",
+      "name": "ninja",
+      "version":
+        "github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "esy-python@github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "meson@github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1@d41d8cd9": {
+      "id":
+        "meson@github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1@d41d8cd9",
+      "name": "meson",
+      "version":
+        "github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "esy-python@github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "esy-zlib@github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15@d41d8cd9": {
+      "id":
+        "esy-zlib@github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15@d41d8cd9",
+      "name": "esy-zlib",
+      "version":
+        "github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "esy-python@github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96@d41d8cd9": {
+      "id":
+        "esy-python@github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96@d41d8cd9",
+      "name": "esy-python",
+      "version":
+        "github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "esy-zlib@github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "esy-gobject-introspection@link-dev:./package.json": {
+      "id": "esy-gobject-introspection@link-dev:./package.json",
+      "name": "esy-gobject-introspection",
       "version": "link-dev:./package.json",
       "source": {
         "type": "link-dev",
         "path": ".",
         "manifest": "package.json"
+      },
+      "overrides": [],
+      "dependencies": [
+        "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9",
+        "meson@github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1@d41d8cd9",
+        "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9": {
+      "id":
+        "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9",
+      "name": "@esy-ocaml/libffi",
+      "version":
+        "github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384"
+        ]
       },
       "overrides": [],
       "dependencies": [],

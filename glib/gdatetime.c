@@ -1134,7 +1134,8 @@ g_date_time_new_from_timeval_utc (const GTimeVal *tv)
 static gboolean
 get_iso8601_int (const gchar *text, gsize length, gint *value)
 {
-  gint i, v = 0;
+  gsize i;
+  guint v = 0;
 
   if (length < 1 || length > 4)
     return FALSE;
@@ -1155,7 +1156,7 @@ get_iso8601_int (const gchar *text, gsize length, gint *value)
 static gboolean
 get_iso8601_seconds (const gchar *text, gsize length, gdouble *value)
 {
-  gint i;
+  gsize i;
   gdouble divisor = 1, v = 0;
 
   if (length < 2)
@@ -1303,7 +1304,10 @@ parse_iso8601_date (const gchar *text, gsize length,
 static GTimeZone *
 parse_iso8601_timezone (const gchar *text, gsize length, gssize *tz_offset)
 {
-  gint i, tz_length, offset_sign = 1, offset_hours, offset_minutes;
+  gint i, tz_length, offset_hours, offset_minutes;
+#ifndef G_DISABLE_ASSERT
+  gint offset_sign = 1;
+#endif
   GTimeZone *tz;
 
   /* UTC uses Z suffix  */
@@ -1317,7 +1321,9 @@ parse_iso8601_timezone (const gchar *text, gsize length, gssize *tz_offset)
   for (i = length - 1; i >= 0; i--)
     if (text[i] == '+' || text[i] == '-')
       {
+#ifndef G_DISABLE_ASSERT
         offset_sign = text[i] == '-' ? -1 : 1;
+#endif
         break;
       }
   if (i < 0)
@@ -2773,7 +2779,7 @@ format_z (GString *outstr,
 }
 
 #ifdef HAVE_LANGINFO_OUTDIGIT
-/** Initializes the array with UTF-8 encoded alternate digits suibtable for use
+/* Initializes the array with UTF-8 encoded alternate digits suitable for use
  * in current locale. Returns NULL when current locale does not use alternate
  * digits or there was an error converting them to UTF-8.
  */
@@ -2803,7 +2809,7 @@ initialize_alt_digits (void)
       if (digit == NULL)
         return NULL;
 
-      g_assert (digit_len < buffer + sizeof (buffer) - buffer_end);
+      g_assert (digit_len < (gsize) (buffer + sizeof (buffer) - buffer_end));
 
       alt_digits[i] = buffer_end;
       buffer_end = g_stpcpy (buffer_end, digit);

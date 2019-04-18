@@ -46,18 +46,11 @@
 #include "gstrfuncs.h"
 #include "gtestutils.h"
 #include "gthread.h"
+#include "gthreadprivate.h"
 #include "gunicode.h"
 #include "gfileutils.h"
 
 #include "glibintl.h"
-
-#if defined(USE_LIBICONV_GNU) && !defined (_LIBICONV_H)
-#error GNU libiconv in use but included iconv.h not from libiconv
-#endif
-#if !defined(USE_LIBICONV_GNU) && defined (_LIBICONV_H) \
-     && !defined (__APPLE_CC__) && !defined (__LP_64__)
-#error GNU libiconv not in use but included iconv.h is from libiconv
-#endif
 
 
 /**
@@ -788,7 +781,8 @@ g_convert_with_fallback (const gchar *str,
 		  inbytes_remaining = strlen (p);
 		  break;
 		}
-	      /* fall thru if p is NULL */
+              /* if p is null */
+              G_GNUC_FALLTHROUGH;
 	    default:
               {
                 int errsv = errno;
@@ -1130,10 +1124,7 @@ g_get_filename_charsets (const gchar ***filename_charsets)
   const gchar *charset;
 
   if (!cache)
-    {
-      cache = g_new0 (GFilenameCharsetCache, 1);
-      g_private_set (&cache_private, cache);
-    }
+    cache = g_private_set_alloc0 (&cache_private, sizeof (GFilenameCharsetCache));
 
   g_get_charset (&charset);
 

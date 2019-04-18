@@ -1,6 +1,6 @@
 {
-  "checksum": "dd8efadc88250414546f246143372a65",
-  "root": "esy-gobject-introspection@link-dev:./package.json",
+  "checksum": "65c18c30bd2aa66d2afc733cd3897a87",
+  "root": "esy-glib@link-dev:./package.json",
   "node": {
     "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9": {
       "id":
@@ -38,6 +38,38 @@
       ],
       "devDependencies": []
     },
+    "libiconv@github:prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd@d41d8cd9": {
+      "id":
+        "libiconv@github:prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd@d41d8cd9",
+      "name": "libiconv",
+      "version":
+        "github:prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "gettext@github:prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4@d41d8cd9": {
+      "id":
+        "gettext@github:prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4@d41d8cd9",
+      "name": "gettext",
+      "version":
+        "github:prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
     "esy-zlib@github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15@d41d8cd9": {
       "id":
         "esy-zlib@github:prometheansacrifice/esy-zlib#f204718d6f3b8c11ec3e4cddad299b723107bf15@d41d8cd9",
@@ -72,9 +104,9 @@
       ],
       "devDependencies": []
     },
-    "esy-gobject-introspection@link-dev:./package.json": {
-      "id": "esy-gobject-introspection@link-dev:./package.json",
-      "name": "esy-gobject-introspection",
+    "esy-glib@link-dev:./package.json": {
+      "id": "esy-glib@link-dev:./package.json",
+      "name": "esy-glib",
       "version": "link-dev:./package.json",
       "source": {
         "type": "link-dev",
@@ -85,6 +117,8 @@
       "dependencies": [
         "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9",
         "meson@github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1@d41d8cd9",
+        "libiconv@github:prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd@d41d8cd9",
+        "gettext@github:prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4@d41d8cd9",
         "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9"
       ],
       "devDependencies": []

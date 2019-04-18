@@ -3,7 +3,7 @@
   "version": "2.61.000",
   "description": "Gobject Introspection (gir) packaged for esy",
   "esy": {
-    "buildsInSource": false,
+    "buildsInSource": true,
     "buildEnv": {
       "TMPDIR": "#{self.install / 'var' / 'tmp'}"
     },

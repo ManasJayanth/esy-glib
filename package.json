@@ -25,7 +25,9 @@
   "dependencies": {
     "@esy-ocaml/libffi": "prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384",
     "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
-    "ninja": "prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3"
+    "ninja": "prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3",
+    "gettext": "prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4",
+    "libiconv": "prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd"
   },
   "resolutions": {
     "esy-python": "esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96"

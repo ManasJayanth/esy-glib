@@ -10,7 +10,7 @@
     "exportedEnv": {
       "PKG_CONFIG_PATH": {
         "scope": "global",
-        "val": "#{self.lib / 'pkgconfig'} $PKG_CONFIG_PATH"
+        "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH }"
       }
     },
     "build": [
@@ -27,7 +27,9 @@
     "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
     "ninja": "prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3",
     "gettext": "prometheansacrifice/esy-gettext#733735f300585916b6fd1ddcbb10d89df50cfee4",
-    "libiconv": "prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd"
+    "libiconv": "prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd",
+    "pcre2": "prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03",
+    "pkg-config": "esy-packages/pkg-config#4790fb74124f66b034c34d3f7129044d33e6ef73"
   },
   "resolutions": {
     "esy-python": "esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96"

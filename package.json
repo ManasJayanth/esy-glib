@@ -3,7 +3,6 @@
   "version": "2.61.000",
   "description": "Gobject Introspection (gir) packaged for esy",
   "esy": {
-    "buildsInSource": true,
     "buildEnv": {
       "TMPDIR": "#{self.install / 'var' / 'tmp'}"
     },
@@ -14,12 +13,12 @@
       }
     },
     "build": [
-      "mkdir -p #{self.target_dir / '_build'} #{self.install / 'var' / 'tmp'}",
-      "meson setup --prefix #{self.install} #{self.target_dir / '_build'}",
-      "ninja -C #{self.target_dir / '_build'}"
+      "mkdir -p #{self.install / 'var' / 'tmp'}",
+      "meson setup --prefix #{self.install} #{self.target_dir}",
+      "ninja -C #{self.target_dir}"
     ],
     "install": [
-      "meson install -C #{self.target_dir / '_build'}"
+      "meson install -C #{self.target_dir}"
     ]
   },
   "dependencies": {
@@ -28,7 +27,9 @@
     "ninja": "prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3",
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre2": "prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03",
-    "pkg-config": "esy-packages/pkg-config#4790fb74124f66b034c34d3f7129044d33e6ef73"
+    "pkg-config": "esy-packages/pkg-config#4790fb74124f66b034c34d3f7129044d33e6ef73",
+    "gettext": "prometheansacrifice/esy-gettext#b0aca8bdffb21780061fd4dc43b791dbe72b82cf",
+    "libiconv": "prometheansacrifice/esy-libiconv#179b128fc0498ba8bbc9d28618ef9dadc23c1ddd"
   },
   "resolutions": {
     "esy-python": "esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96"

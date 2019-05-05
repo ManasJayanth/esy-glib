@@ -18,7 +18,8 @@
       "ninja -C #{self.target_dir}"
     ],
     "install": [
-      "meson install -C #{self.target_dir}"
+      "meson install -C #{self.target_dir}",
+      "bash patch-pkgconfig.sh #{esy-gettext.install}"
     ]
   },
   "dependencies": {
@@ -28,9 +29,6 @@
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre2": "prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03",
     "pkg-config": "esy-packages/pkg-config#4790fb74124f66b034c34d3f7129044d33e6ef73",
-    "gettext": "prometheansacrifice/esy-gettext#b0aca8bdffb21780061fd4dc43b791dbe72b82cf"
-  },
-  "resolutions": {
-    "esy-python": "esy-packages/esy-python#4229568c55ab77a315963b255e44cf0f43223c96"
+    "esy-gettext": "prometheansacrifice/esy-gettext#b0aca8bdffb"
   }
 }

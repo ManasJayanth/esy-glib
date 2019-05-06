@@ -20,7 +20,7 @@
     ],
     "install": [
       "meson install -C #{self.target_dir}",
-      "bash patch-pkgconfig.sh #{esy-gettext.install}"
+      "bash patch-pkgconfig.sh #{esy-gettext.install} #{os}"
     ]
   },
   "dependencies": {

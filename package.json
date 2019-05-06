@@ -4,7 +4,8 @@
   "description": "Gobject Introspection (gir) packaged for esy",
   "esy": {
     "buildEnv": {
-      "TMPDIR": "#{self.install / 'var' / 'tmp'}"
+      "TMPDIR": "#{self.install / 'var' / 'tmp'}",
+      "PKG_CONFIG_PATH": "$PKG_CONFIG_PATH:/usr/lib/pkgconfig"
     },
     "exportedEnv": {
       "PKG_CONFIG_PATH": {

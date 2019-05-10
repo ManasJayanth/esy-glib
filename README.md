@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/prometheansacrifice/esy-packages/_apis/build/status/prometheansacrifice.esy-glib?branchName=master)](https://dev.azure.com/prometheansacrifice/esy-packages/_build/latest?definitionId=38&branchName=master)
+
 General Information
 ===================
 

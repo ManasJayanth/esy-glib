@@ -1,5 +1,5 @@
 {
-  "checksum": "774ba22d7c88024da0fc8dbe1ba7bc6a",
+  "checksum": "c1d0cbb2c9c04fe19c776fe923c87bda",
   "root": "esy-glib@link-dev:./package.json",
   "node": {
     "pkg-config@archive:https://pkg-config.freedesktop.org/releases/pkg-config-0.29.tar.gz#sha1:f4b19d203b3896a4293af4b62c7f908063c88a5a@bc0878cb": {
@@ -18,16 +18,16 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "pcre2@github:prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03@d41d8cd9": {
+    "pcre2@github:prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787@d41d8cd9": {
       "id":
-        "pcre2@github:prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03@d41d8cd9",
+        "pcre2@github:prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787@d41d8cd9",
       "name": "pcre2",
       "version":
-        "github:prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03",
+        "github:prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787",
       "source": {
         "type": "install",
         "source": [
-          "github:prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03"
+          "github:prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787"
         ]
       },
       "overrides": [],
@@ -120,22 +120,6 @@
       ],
       "devDependencies": []
     },
-    "esy-help2man@github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443@d41d8cd9": {
-      "id":
-        "esy-help2man@github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443@d41d8cd9",
-      "name": "esy-help2man",
-      "version":
-        "github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443",
-      "source": {
-        "type": "install",
-        "source": [
-          "github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
-      "devDependencies": []
-    },
     "esy-glib@link-dev:./package.json": {
       "id": "esy-glib@link-dev:./package.json",
       "name": "esy-glib",
@@ -148,83 +132,29 @@
       "overrides": [],
       "dependencies": [
         "pkg-config@archive:https://pkg-config.freedesktop.org/releases/pkg-config-0.29.tar.gz#sha1:f4b19d203b3896a4293af4b62c7f908063c88a5a@bc0878cb",
-        "pcre2@github:prometheansacrifice/esy-pcre2#234f5bfe1f22938988ee05167cbd4b61d9a71e03@d41d8cd9",
+        "pcre2@github:prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787@d41d8cd9",
         "ninja@github:prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3@d41d8cd9",
         "meson@github:prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1@d41d8cd9",
         "libiconv@github:prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b@d41d8cd9",
-        "esy-gettext@github:prometheansacrifice/esy-gettext#b0aca8bdffb@d41d8cd9",
+        "esy-gettext@github:prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be@d41d8cd9",
         "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9"
       ],
       "devDependencies": []
     },
-    "esy-gettext@github:prometheansacrifice/esy-gettext#b0aca8bdffb@d41d8cd9": {
+    "esy-gettext@github:prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be@d41d8cd9": {
       "id":
-        "esy-gettext@github:prometheansacrifice/esy-gettext#b0aca8bdffb@d41d8cd9",
+        "esy-gettext@github:prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be@d41d8cd9",
       "name": "esy-gettext",
-      "version": "github:prometheansacrifice/esy-gettext#b0aca8bdffb",
-      "source": {
-        "type": "install",
-        "source": [ "github:prometheansacrifice/esy-gettext#b0aca8bdffb" ]
-      },
-      "overrides": [],
-      "dependencies": [
-        "automake@github:esy-packages/esy-automake#0d274908e251ad6f989162f70fa497570852a684@d41d8cd9",
-        "autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9"
-      ],
-      "devDependencies": []
-    },
-    "esy-autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9": {
-      "id":
-        "esy-autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9",
-      "name": "esy-autoconf",
       "version":
-        "github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea",
+        "github:prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be",
       "source": {
         "type": "install",
         "source": [
-          "github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea"
+          "github:prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be"
         ]
       },
       "overrides": [],
-      "dependencies": [
-        "esy-help2man@github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443@d41d8cd9"
-      ],
-      "devDependencies": []
-    },
-    "automake@github:esy-packages/esy-automake#0d274908e251ad6f989162f70fa497570852a684@d41d8cd9": {
-      "id":
-        "automake@github:esy-packages/esy-automake#0d274908e251ad6f989162f70fa497570852a684@d41d8cd9",
-      "name": "automake",
-      "version":
-        "github:esy-packages/esy-automake#0d274908e251ad6f989162f70fa497570852a684",
-      "source": {
-        "type": "install",
-        "source": [
-          "github:esy-packages/esy-automake#0d274908e251ad6f989162f70fa497570852a684"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [
-        "esy-autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9"
-      ],
-      "devDependencies": []
-    },
-    "autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9": {
-      "id":
-        "autoconf@github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea@d41d8cd9",
-      "name": "autoconf",
-      "version":
-        "github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea",
-      "source": {
-        "type": "install",
-        "source": [
-          "github:esy-packages/esy-autoconf#94f846f3ad69fc65c65a61dd7fd3d70073dc93ea"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [
-        "esy-help2man@github:esy-packages/esy-help2man#c8e6931d1dcf58a81bd801145a777fd3b115c443@d41d8cd9"
-      ],
+      "dependencies": [],
       "devDependencies": []
     },
     "@esy-ocaml/libffi@github:prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384@d41d8cd9": {

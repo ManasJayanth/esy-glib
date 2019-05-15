@@ -15,7 +15,7 @@
     },
     "build": [
       "mkdir -p #{self.install / 'var' / 'tmp'}",
-      "meson setup --prefix #{self.install} #{self.target_dir}",
+      "meson setup -Dlibmount=false --prefix #{self.install} #{self.target_dir}",
       "ninja -C #{self.target_dir}"
     ],
     "install": [
@@ -26,7 +26,7 @@
   "dependencies": {
     "@esy-ocaml/libffi": "prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384",
     "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
-    "ninja": "prometheansacrifice/esy-ninja#9c1ba7876d8ecdebc31117178b8cc56e441edcf3",
+    "ninja": "prometheansacrifice/esy-ninja#7bf8855359092d4c172824766973fe0768846010",
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre2": "prometheansacrifice/esy-pcre2#fcd5ff38c4d94a082b5141ce1e8dccd647897787",
     "pkg-config": "prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",

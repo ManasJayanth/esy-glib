@@ -15,7 +15,7 @@
     },
     "build": [
       "mkdir -p #{self.install / 'var' / 'tmp'}",
-      "meson setup -Dlibmount=false --prefix #{self.install} #{self.target_dir}",
+      "meson setup -Dlibmount=false --libdir #{self.lib} --prefix #{self.install} #{self.target_dir}",
       "ninja -C #{self.target_dir}"
     ],
     "install": [

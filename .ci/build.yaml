@@ -17,5 +17,3 @@ jobs:
     displayName: 'Installing deps'
   - script: esy build
     displayName: 'Building'
-  - script: esy x which automake
-    displayName: 'Dry run'

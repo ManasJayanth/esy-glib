@@ -26,7 +26,7 @@
   "dependencies": {
     "@esy-ocaml/libffi": "prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384",
     "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
-    "ninja": "prometheansacrifice/esy-ninja#7bf8855359092d4c172824766973fe0768846010",
+    "ninja": "prometheansacrifice/esy-ninja#37fae9254002a02bb56c4b65b6fad54fcaae8bae",
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e",
     "pkg-config": "prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",

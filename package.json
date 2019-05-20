@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@esy-ocaml/libffi": "prometheansacrifice/libffi#9f60bed74b01fefb5f26b49806108cdfe0ed6384",
-    "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
+    "meson": "prometheansacrifice/esy-meson#dce5534b0acd7a2b85b5cee78e933796204e0cce",
     "ninja": "prometheansacrifice/esy-ninja#37fae9254002a02bb56c4b65b6fad54fcaae8bae",
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e",

@@ -5,7 +5,8 @@
   "esy": {
     "buildEnv": {
       "TMPDIR": "#{self.install / 'var' / 'tmp'}",
-      "PKG_CONFIG_PATH": "$PKG_CONFIG_PATH:/usr/lib/pkgconfig"
+      "PKG_CONFIG_PATH": "$PKG_CONFIG_PATH:/usr/lib/pkgconfig",
+      "LD_LIBRARY_PATH": "#{libiconv.lib}:$LD_LIBRARY_PATH"
     },
     "exportedEnv": {
       "PKG_CONFIG_PATH": {
@@ -30,6 +31,6 @@
     "libiconv": "prometheansacrifice/esy-libiconv#90beb704ffc6e9fa0f59a28dee153136e330462b",
     "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e",
     "pkg-config": "prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",
-    "esy-gettext": "prometheansacrifice/esy-gettext#d1abfd44b560c36b02e06e5393b8e3b64d8c96be"
+    "esy-gettext": "prometheansacrifice/esy-gettext#11d1cf660082bd350f9df7b60c510271aeab804c"
   }
 }

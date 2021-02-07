@@ -6,6 +6,7 @@
     "buildEnv": {
       "TMPDIR": "#{self.install / 'var' / 'tmp'}",
       "PKG_CONFIG_PATH": "$PKG_CONFIG_PATH:/usr/lib/pkgconfig",
+      "PYTHONPATH": "#{meson.lib / 'python3.7' / 'site-packages'}:#{meson.lib / 'python3.9' / 'site-packages'}:$PYTHONPATH",
       "LD_LIBRARY_PATH": "#{libiconv.lib}:$LD_LIBRARY_PATH"
     },
     "exportedEnv": {
